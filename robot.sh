@@ -3,10 +3,11 @@
 check_input(){
 
         
-        if [[ ! $1 =~ ['!@#$%^&*()_+'] ]]; then
-                echo "Yes"
+        if [[ ! $1 =~ ['!@#$%^&*()_+'] ]] && [[ $1 =~ [RLFB] ]]; then
+                #Return success status since the input pattern is correct.
+                return
         else
-                echo "No"
+                echo "The input is incorrect. Exiting..."
                 exit 1;
         fi
 }
@@ -39,19 +40,31 @@ calculate_distance(){
  
         echo "Total forward Steps:" $forward_count
         echo "Total backward Steps:" $backward_count
+        echo ""
  
         total_units=$(($forward_count - $backward_count))
         echo "Total distance in Units:" ${total_units/-/}
+        echo ""
 }
 
 clear
 
- 
+NL=$'\n'
+
 #Get inputs from the user
 echo "Please provide steps to Mr. Robot and press ENTER."
 read steps
 
 check_input $steps
 
-echo "Calculating..."
+status=$?
+
+if (exit $status); then
+    echo ""
+    echo "The input matches the pattern requirement. Proceeding to calculate..."
+    echo ""
+    
+    calculate_distance
+fi
+
  
