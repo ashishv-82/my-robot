@@ -1,7 +1,7 @@
 #!/bin/bash
 
+#Function which validates the user input
 check_input(){
-
         
         if [[ ! $1 =~ ['!@#$%^&*()_+'] ]] && [[ $1 =~ [RLFB] ]]; then
                 #Return success status since the input pattern is correct.
@@ -12,6 +12,7 @@ check_input(){
         fi
 }
 
+#Function which calculates the distance
 calculate_distance(){
 
         forward_count=0
@@ -55,15 +56,18 @@ NL=$'\n'
 echo "Please provide steps to Mr. Robot and press ENTER."
 read steps
 
+#Call the check_input function
 check_input $steps
 
 status=$?
 
+#If the user input is valid, call the calculate_disctance function
 if (exit $status); then
     echo ""
     echo "The input matches the pattern requirement. Proceeding to calculate..."
     echo ""
-    
+
+    #Function call
     calculate_distance
 fi
 
