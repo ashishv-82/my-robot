@@ -10,8 +10,8 @@ check_input(){
                 return
         else
                 echo ""
-                echo "Sorry, the Robot is unable to understand these inputs."
-                echo "Please read the instructions and execute Robot again. Exiting now."; echo ""
+                echo -e "${Red}Sorry, the Robot is unable to understand these instructions.${Color_Off}"
+                echo -e "${Red}Please read the guidelines and execute Robot again. Exiting now.${Color_Off}"; echo ""
                 exit 1;
         fi
 
@@ -51,20 +51,24 @@ calculate_distance(){
  
         #Find the differnece in Forward and Backward steps
         total_units=$(($forward_count - $backward_count))
-        echo "The distace from the starting point is" ${total_units/-/} "units."
+        echo -e "${BWhite}The distace from the starting point is" ${total_units/-/} "units.${Color_Off}"
         echo ""
 }
 
 #Clear the screen. This program starts here.
 clear
 
+#Invoking the colour palette
+. ./colour_palette.sh
+#echo -e "I ${Red}love${Color_Off} Stack Ashish"
+
 #Get inputs from the user
-echo "PLEASE READ THESE INSTRUCTIONS BEFORE PROCEEDING."; echo ""
+echo -e "${Green}PLEASE READ THESE GUIDELINES BEFORE PROCEEDING.${Color_Off}"; echo ""
 echo "This Robot is new, and understands only F, B, R, L commands to move Forward, Backwards, Right and Left."
 echo "Example: R3,F2,B5,L2,F2"; echo ""
 echo "The numbers are units of movement."
 echo "Here, the Robot moves forward and backwards N times, turns right or left by 90 degrees N times."; echo ""
-echo "Please provide instructions to Mr. Robot and press ENTER."; echo ""
+echo -e "${BWhite}Please provide instructions to Mr. Robot and press ENTER.${Color_Off}"; echo ""
 
 #Take user inputs
 read steps
@@ -79,7 +83,7 @@ status=$?
 #If the user input is valid, call the calculate_disctance function
 if (exit $status); then
     echo ""
-    echo "Thank You. The input matches the pattern requirements. Calculating the distance now..."
+    echo -e "${Green}Thank You. The input matches the pattern requirements. Calculating the distance now...${Color_Off}"
     echo ""
 
     #Function call
