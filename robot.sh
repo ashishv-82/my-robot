@@ -1,18 +1,23 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-#Function which validates the user input
+#Function which validates the user input. It checks for the following:
+#  User input should only contain alphabets: F, B, L, R (case insensitive).
+#  Only comma is allowed. Any other special characters are to be rejected.
 check_input(){
         
-        if [[ ! $1 =~ ['!@#$%^&*()_+'] ]] && [[ $1 =~ [RLFB] ]]; then
+        #if [[ ! $1 =~ ['!@#$%^&*()_+'] ]] && [[ $1 =~ [RLFB] ]]; then
+        if [[ $1 =~ ^[FBRLfbrl][0-9](,[FBLRfbrl][0-9])*$ ]]; then
                 #Return success status since the input pattern is correct.
                 return
         else
-                echo "The input is incorrect. Exiting..."
+                echo ""
+                echo "Sorry, the Robot does not understand these inputs."
+                echo "Please read the instructions and execute Robot again. Exiting now."; echo ""
                 exit 1;
         fi
 }
 
-#Function which calculates the distance
+#Function which calculates the distance of the Robot from its starting point.
 calculate_distance(){
 
         forward_count=0
@@ -24,7 +29,7 @@ calculate_distance(){
         #Store the split steps into an array based on comma delimiter
         read -a steparr <<< "$steps"
  
-        #Iterate through the array and search for Forward steps
+        #Iterate through the array and search for Forward and Backward steps
         for i in "${steparr[@]}";
         do
                 if grep -q "F" <<< "$i" ;
@@ -39,36 +44,41 @@ calculate_distance(){
                 fi
         done
  
+        #Print some statistics
         echo "Total forward Steps:" $forward_count
         echo "Total backward Steps:" $backward_count
         echo ""
  
+        #Find the differnece in Forward and Backward steps
         total_units=$(($forward_count - $backward_count))
         echo "Total distance in Units:" ${total_units/-/}
         echo ""
 }
 
+#Clear the screen. This program starts here.
 clear
 
-NL=$'\n'
-
 #Get inputs from the user
-echo "Please provide steps to Mr. Robot and press ENTER."
+echo "PLEASE READ THESE INSTRUCTIONS BEFORE PROCEEDING."; echo ""
+echo "This Robot is new, and understands only F, B, R, L commands to move Forward, Backwards, Right and Left."
+echo "Example: R3,F2,B5,L2,F2"; echo ""
+echo "The numbers are units of movement."
+echo "Here, the Robot moves forward and backwards N times, turns right or left by 90 degrees N times."; echo ""
+echo "Please provide instructions to Mr. Robot and press ENTER."; echo ""
+
+#Take user inputs
 read steps
 
 #Call the check_input function
 check_input $steps
-
 status=$?
 
 #If the user input is valid, call the calculate_disctance function
 if (exit $status); then
     echo ""
-    echo "The input matches the pattern requirement. Proceeding to calculate..."
+    echo "Thanks You. The input matches the pattern requirements. Calculating the distance now..."
     echo ""
 
     #Function call
     calculate_distance
 fi
-
- 
