@@ -10,7 +10,7 @@ check_input(){
                 return
         else
                 echo ""
-                echo "Sorry, the Robot does not understand these inputs."
+                echo "Sorry, the Robot is unable to understand these inputs."
                 echo "Please read the instructions and execute Robot again. Exiting now."; echo ""
                 exit 1;
         fi
@@ -27,7 +27,7 @@ calculate_distance(){
         IFS=','
  
         #Store the split steps into an array based on comma delimiter
-        read -a steparr <<< "$steps"
+        read -a steparr <<< "$upper"
  
         #Iterate through the array and search for Forward and Backward steps
         for i in "${steparr[@]}";
@@ -69,14 +69,17 @@ echo "Please provide instructions to Mr. Robot and press ENTER."; echo ""
 #Take user inputs
 read steps
 
+#Convert the string to uppercase
+upper=`echo $steps | awk '{print toupper($0)}'`
+
 #Call the check_input function
-check_input $steps
+check_input $upper
 status=$?
 
 #If the user input is valid, call the calculate_disctance function
 if (exit $status); then
     echo ""
-    echo "Thanks You. The input matches the pattern requirements. Calculating the distance now..."
+    echo "Thank You. The input matches the pattern requirements. Calculating the distance now..."
     echo ""
 
     #Function call
