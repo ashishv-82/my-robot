@@ -4,9 +4,8 @@
 #  User input should only contain alphabets: F, B, L, R (case insensitive).
 #  Only comma is allowed. Any other special characters are to be rejected.
 check_input(){
-        
-        #if [[ ! $1 =~ ['!@#$%^&*()_+'] ]] && [[ $1 =~ [RLFB] ]]; then
-        if [[ $1 =~ ^[FBRLfbrl][0-9](,[FBLRfbrl][0-9])*$ ]]; then
+
+        if [[ $1 =~ ^[FfBbRrLl][0-9](,[FfBbRrLl][0-9])*$ ]]; then
                 #Return success status since the input pattern is correct.
                 return
         else
@@ -15,6 +14,7 @@ check_input(){
                 echo "Please read the instructions and execute Robot again. Exiting now."; echo ""
                 exit 1;
         fi
+
 }
 
 #Function which calculates the distance of the Robot from its starting point.
@@ -45,13 +45,13 @@ calculate_distance(){
         done
  
         #Print some statistics
-        echo "Total forward Steps:" $forward_count
-        echo "Total backward Steps:" $backward_count
+        echo "The Robot has moved forward by" $forward_count "units."
+        echo "The Robot has moved backwards by" $backward_count "units."
         echo ""
  
         #Find the differnece in Forward and Backward steps
         total_units=$(($forward_count - $backward_count))
-        echo "Total distance in Units:" ${total_units/-/}
+        echo "The distace from the starting point is" ${total_units/-/} "units."
         echo ""
 }
 
