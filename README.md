@@ -51,6 +51,7 @@ code blocks for commands
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+  
 Please make sure to update tests as appropriate.
 
 ## Version History
@@ -60,3 +61,8 @@ Please make sure to update tests as appropriate.
 ## Author
   
 Ashish Verma
+  
+## License
+>You can check out the full license [here](https://github.com/ashishv-82/my-robot/blob/main/LICENSE)
+
+This project is licensed under the terms of the **MIT** license.
