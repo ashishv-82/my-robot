@@ -58,9 +58,8 @@ calculate_distance(){
 #Clear the screen. This program starts here.
 clear
 
-#Invoking the colour palette
+#setting up the colour palette
 . ./colour_palette.sh
-#echo -e "I ${Red}love${Color_Off} Stack Ashish"
 
 #Get inputs from the user
 echo -e "${Green}PLEASE READ THESE GUIDELINES BEFORE PROCEEDING.${Color_Off}"; echo ""
@@ -70,7 +69,7 @@ echo "The numbers are units of movement."
 echo "Here, the Robot moves forward and backwards N times, turns right or left by 90 degrees N times."; echo ""
 echo -e "${BWhite}Please provide instructions to Mr. Robot and press ENTER.${Color_Off}"; echo ""
 
-#Take user inputs
+#Read user inputs from console
 read steps
 
 #Convert the string to uppercase
