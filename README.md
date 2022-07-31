@@ -30,3 +30,33 @@ The robot receives commands from the user to move. These commands will tell the 
   ```
   
 ## Getting Started
+
+  ### Dependencies
+
+* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
+* ex. Windows 10
+
+### Installing
+
+* How/where to download your program
+* Any modifications needed to be made to files/folders
+
+### Executing program
+
+* How to run the program
+* Step-by-step bullets
+```
+code blocks for commands
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Please make sure to update tests as appropriate.
+
+## Version History
+
+* 0.1 - Initial Release
+
+## Author
+  
+Ashish Verma
