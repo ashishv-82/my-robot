@@ -28,7 +28,17 @@ The robot receives commands from the user to move. These commands will tell the 
   X3,R6,L3,F3
   F4,L9,B1,S1,F1
   ```
-  
+
+## Docker image
+
+A docker image of this program is available in Docker Hub. Pull this image and run it in a docker container.
+
+```
+docker pull ashishv82/robot
+```
+
+If docker is not availailble, checkout the following options on how to execute this program.
+
 ## Getting Started
 
 ### Requirements
