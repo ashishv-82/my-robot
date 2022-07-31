@@ -29,6 +29,12 @@ The robot receives commands from the user to move. These commands will tell the 
   F4,L9,B1,S1,F1
   ```
 
+## Workflow
+
+<p align="left">
+  <img src = "images/HLD.png" width=800>
+</p>
+
 ## Docker image
 
 A docker image of this program is available in Docker Hub. Pull this image and run it in a docker container.
