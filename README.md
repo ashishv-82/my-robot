@@ -31,23 +31,46 @@ The robot receives commands from the user to move. These commands will tell the 
   
 ## Getting Started
 
-  ### Dependencies
+### Requirements
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* Bash with version > 3
+* Tested on Ubuntu, Alpine, Debian, MacOS, [Windows Git Shell](https://git-scm.com/download/win)
 
-### Installing
+Basically, it will work anywhere you can install Bash.
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+## How to use
 
-### Executing program
+To clone and run this application, you'll need [Git](https://git-scm.com) installed on your computer. From your command line:
 
-* How to run the program
-* Step-by-step bullets
+```bash
+# Clone this repository
+$ git clone https://github.com/ashishv-82/my-robot.git
+
+# Go into the repository
+$ cd my-robot
+
+# Run the app
+$ bash robot.sh
 ```
-code blocks for commands
-```
+If you wish to bypass git, download the file directly from the Github repository by right-clicking it and saving the target file on your computer. Execute it in bash using the command: `bash robot.sh`
+
+### User prompt
+
+<p align="left">
+  <img src = "images/user-console.png" width=900>
+</p>
+
+### Successful execution
+
+<p align="left">
+  <img src = "images/success.png" width=900>
+</p>
+
+### Invalid user inputs
+
+<p align="left">
+  <img src = "images/invalid-inputs.png" width=900>
+</p>
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
