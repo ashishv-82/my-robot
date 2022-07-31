@@ -14,12 +14,12 @@ check_input(){
                 echo -e "${Red}Please read the guidelines and execute Robot again. Exiting now.${Color_Off}"; echo ""
                 exit 1;
         fi
-
 }
 
 #Function which calculates the distance of the Robot from its starting point.
 calculate_distance(){
 
+        #Counters
         forward_count=0
         backward_count=0
 
@@ -32,15 +32,13 @@ calculate_distance(){
         #Iterate through the array and search for Forward and Backward steps
         for i in "${steparr[@]}";
         do
-                if grep -q "F" <<< "$i" ;
-                then
+                if grep -q "F" <<< "$i" ; then
                         let forward_count+=$(echo "$i" | tr -dc '0-9')
  
-                elif grep -q "B" <<< "$i" ;
-                then
+                elif grep -q "B" <<< "$i" ;then
                         let backward_count+=$(echo "$i" | tr -dc '0-9')
                 else
-                        :
+                        : #do nothing
                 fi
         done
  
