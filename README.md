@@ -32,7 +32,7 @@ The robot receives commands from the user to move. These commands will tell the 
 ## Workflow
 
 <p align="left">
-  <img src = "images/HLD.png" width=800>
+  <img src = "images/workflow.png" width=800>
 </p>
 
 ## Docker image
