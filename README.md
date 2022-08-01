@@ -35,7 +35,7 @@ The robot receives commands from the user to move. These commands will tell the 
   <img src = "images/workflow.png" width=850>
 </p>
 
-## Docker image
+## Dockerhub image
 
 A docker image of this program is available in Docker Hub. Pull this image and run it in a docker container.
 
